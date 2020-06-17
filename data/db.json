@@ -1,0 +1,22 @@
+{
+    "categories": [
+      {
+        "id": 2,
+        "name": "Grinding",
+        "display_name": "Concrete Grinding",
+        "description": "Tools for grinding concrete floors."
+      },
+      {
+        "id": 3,
+        "name": "Polishing",
+        "display_name": "Concrete Polishing",
+        "description": "Tools for polishing concrete floors."
+      },
+      {
+        "id": 4,
+        "name": "Accessories",
+        "display_name": "Filters and Accessories",
+        "description": "Replacement filters for popular brand dust collectors."
+      }
+    ]
+}
