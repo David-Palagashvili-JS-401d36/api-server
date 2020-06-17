@@ -1,0 +1,24 @@
+{
+  "name": "api-server",
+  "version": "1.0.0",
+  "description": " an API to serve data for a virtual storefront, which displays categories and products to a potential shopper.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Palagashvili-JS-401d36/api-server.git"
+  },
+  "keywords": [],
+  "author": "David Palagashvili",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/David-Palagashvili-JS-401d36/api-server/issues"
+  },
+  "homepage": "https://github.com/David-Palagashvili-JS-401d36/api-server#readme",
+  "dependencies": {
+    "json-server": "^0.16.1"
+  }
+}
