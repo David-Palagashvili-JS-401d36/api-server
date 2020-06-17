@@ -1,22 +1,45 @@
 {
     "categories": [
-      {
-        "id": 2,
-        "name": "Grinding",
-        "display_name": "Concrete Grinding",
-        "description": "Tools for grinding concrete floors."
-      },
-      {
-        "id": 3,
-        "name": "Polishing",
-        "display_name": "Concrete Polishing",
-        "description": "Tools for polishing concrete floors."
-      },
-      {
-        "id": 4,
-        "name": "Accessories",
-        "display_name": "Filters and Accessories",
-        "description": "Replacement filters for popular brand dust collectors."
-      }
+        {
+            "id": 1,
+            "name": "Grinding",
+            "display_name": "Concrete Grinding",
+            "description": "Tools for grinding concrete floors."
+        },
+        {
+            "id": 2,
+            "name": "Polishing",
+            "display_name": "Concrete Polishing",
+            "description": "Tools for polishing concrete floors."
+        },
+        {
+            "id": 3,
+            "name": "Accessories",
+            "display_name": "Filters and Accessories",
+            "description": "Replacement filters for popular brand dust collectors."
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "Double Bar",
+            "display_name": "Double Bar Trapezoid Pads",
+            "description": "An aggressive tool best used for prep grinds and rough profiling.",
+            "category": "Grinding"
+        },
+        {
+            "id": 2,
+            "name": "3 Inch Hybrids",
+            "display_name": "3 Inch Transitional Pads",
+            "description": "An versatile tool best used to transition to high gloss polishing or a basic finish",
+            "category": "Polishing"
+        },
+        {
+            "id": 3,
+            "name": "S26 Conical",
+            "display_name": "Conical Pre-Filter for S26 Dust Extractors",
+            "description": "This is the OEM replacement filter designed for Husqvarna and Ermator S26 Dust Collectors.",
+            "category": "Accessories"
+        }
     ]
 }
