@@ -6,6 +6,13 @@ const middlewares = jsonServer.defaults();
 
 // const PORT = process.env.PORT || 3001;
 
+// data formatting using router, returned resources will be wrapped in a body property
+router.render = (request, response) => {
+    response.jsonp({
+        body: response.locals.data
+    });
+};
+
 server.use(middlewares);
 server.use(router);
 
