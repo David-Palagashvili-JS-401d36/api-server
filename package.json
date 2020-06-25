@@ -4,7 +4,7 @@
   "description": " an API to serve data for a virtual storefront, which displays categories and products to a potential shopper.",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "json-server --watch ./data/db.json",
     "watch": "nodemon index.js"
   },
   "repository": {
