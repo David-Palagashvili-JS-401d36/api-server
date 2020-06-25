@@ -1,9 +1,14 @@
 'use strict';
+// NOTE: this file is “entry point” to our server:
 
-/*  TODO: index.js at the root of our repository, which will act as the “entry point” to your server:
+// require dotenv
+require('dotenv').config();
 
- - should require lib/server.js
- - should require dotenv, reading PORT from your .env file
- - should call the .start() method from the server with the PORT set in your environment
+// reading PORT from our .env file
+const PORT = process.env.PORT || 3001;
 
-*/
+// require lib/server.js
+const expServer = require('./lib/server.js');
+
+// call the .start() method from the server with the PORT set in your environment
+expServer.start(PORT);
