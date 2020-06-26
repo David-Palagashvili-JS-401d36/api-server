@@ -1,8 +1,8 @@
 'use strict';
 
-/* TODO: 500.js module, tasks:
+// This module sends a 500/Server Error message as the response (does not call .next())
 
- - Sends a 500/Server Error message as the response (does not call .next())
- - Import this into your server and set it up to be “used” as the last route
-
-*/
+module.exports = (request, response, error) => {
+    console.log('__ERROR__: ', error); // this will log and show error details
+    response.status(500).send('Well now you\'ve done it! There\'s something wrong with the server.'); // Sends a 500 message.
+}; // exported to server and set up to be “used” as the last route
