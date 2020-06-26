@@ -6,3 +6,7 @@
  - Import this into your server and set it up to be “used” after your other routes
 
 */
+
+module.exports = (request, response, error) => {
+    console.log('__ERROR__')
+}

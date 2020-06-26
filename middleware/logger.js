@@ -1,8 +1,9 @@
 'use strict';
+// https://stackify.com/javascript-logging-basic-tips/
 
-/* TODO: logger.js module, tasks:
+// This module executes a console.log() containing the request path, method, and the requestTime property of the request object
 
- - Execute a console.log() containing the request path, method, and the requestTime property of the request object
- - Import this into your server and set it up to run at the application level for all routes
-
-*/
+module.exports = (request, response, next) => {
+    console.log('__REQUEST__: ' + `${request.path}` + `${request.method}` + `${request.requestTime}`);
+    next(); // exported and set it up to run at the application level for all routes
+};
