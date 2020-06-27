@@ -1,6 +1,10 @@
 'use strict';
 // NOTE: this file is “entry point” to our server:
 
+// TODO: Update the index:
+// Require the mongoose library.
+// Prior to calling start() on your imported server module, it connect to Mongo, via mongoose.
+
 // require dotenv
 require('dotenv').config();
 
