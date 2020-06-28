@@ -3,7 +3,6 @@
 
 // TODO: Update the index:
 
-// Prior to calling start() on your imported server module, it connect to Mongo, via mongoose.
 
 // require dotenv and the mongoose library.
 require('dotenv').config();
@@ -21,7 +20,13 @@ mongoose.connect(process.env.MONGODB_ATLAS_URI, {
     useUnifiedTopology: true
 });
 
+// Prior to calling start() on our imported server module, it connects to Mongo, via mongoose.
 
+const mongoDB = mongoose.connection;
+
+mongoDB.on('open', () => {
+  console.log('Now connected to Mongo Database');
+});
 
 // call the .start() method from the server with the PORT set in your environment
 expServer.start(PORT);
