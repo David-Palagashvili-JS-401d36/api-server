@@ -14,7 +14,7 @@ router.get('/', getCategories);
 router.get('/:id', getCategoryByID);
 router.post('/', addCategory);
 router.put('/:id', updateCategory);
-router.delete('/:id', );
+router.delete('/:id', deleteCategory);
 
 /* TODO: Begin the conversion from memory data to persistent data …
 - In your handler methods, rather than change your in-memory data store, call the appropriate model methods
@@ -45,3 +45,12 @@ function updateCategory (request, response) {
     .then(result => response.send('updated' + request.params.id))
     .catch(error => response.send(error))
 };
+
+function deleteCategory (request, response) {
+    Category.delete(request.params.id)
+    .then(result => response.send('deleted' + request.params.id))
+    .catch(error => response.send(error))
+};
+
+// export the catergories router
+module.exports = router;
