@@ -31,3 +31,11 @@ describe('testing api-server', () => {
         });
     });
 });
+
+/* TODO: Write tests as follows
+- Unit tests for your middleware
+- Route tests for our server
+- Every route should respond with the right status code and the expected data
+- CRUD tests for your collection classes
+- Use the supergoose testing library to ensure that none of your data is persisted into a live database and that your server need not be started.
+*/
