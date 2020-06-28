@@ -1,7 +1,7 @@
 'use strict';
 const express = require('express');
 
-// Create an instance of express.Router() and export it
+// Create an instance of express.Router()
 const router = express.Router();
 
 // Import appropriate Mongoose Collection
@@ -16,11 +16,7 @@ router.post('/', addCategory);
 router.put('/:id', updateCategory);
 router.delete('/:id', deleteCategory);
 
-/* TODO: Begin the conversion from memory data to persistent data …
-- In your handler methods, rather than change your in-memory data store, call the appropriate model methods
-*/
-
-// Redefined as route handlers
+// Redefined as route handlers, rather than change our in-memory data store, I called the corresponding model methods.
 
 function getCategories (request, response) {
     Category.read()
@@ -52,5 +48,5 @@ function deleteCategory (request, response) {
     .catch(error => response.send(error))
 };
 
-// export the catergories router
+// export the router instance
 module.exports = router;
