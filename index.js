@@ -1,27 +1,32 @@
-// boilerplate from https://www.npmjs.com/package/json-server
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router('data/db.json'); // access the file correctly, ya dummy - this was the problem breaking my inspector. the result came back empty.
-const middlewares = jsonServer.defaults();
+'use strict';
+// NOTE: this file is “entry point” to our server:
 
-// const PORT = process.env.PORT || 3001;
+// TODO: Update the index:
 
-// data formatting using router, returned resources will be wrapped in a body property
-router.render = (request, response) => {
-    response.jsonp({
-        results: response.locals.data,
-        count: response.locals.data.length
-    });
-};
 
-server.use(middlewares);
-server.use(router);
+// require dotenv and the mongoose library.
+require('dotenv').config();
+const mongoose = require('mongoose');
 
-//Routes
-// server.get('/categories', (request, response) => {
-//     const url = 'http://localhost:3000/categories'
-// });
+// reading PORT from our .env file
+const PORT = process.env.PORT || 3001;
 
-server.listen(3000, () => {
-    console.log(`JSON Server is running`)
+// require lib/server.js
+const expServer = require('./lib/server.js');
+
+// connect mongo database, open a default mongoose connection
+mongoose.connect(process.env.MONGODB_ATLAS_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
+
+// Prior to calling start() on our imported server module, it connects to Mongo, via mongoose.
+
+const mongoDB = mongoose.connection;
+
+mongoDB.on('open', () => {
+  console.log('Now connected to Mongo Database');
+});
+
+// call the .start() method from the server with the PORT set in your environment
+expServer.start(PORT);
