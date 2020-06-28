@@ -10,9 +10,9 @@ const CategoryModel = require('../lib/models/categories/categories.collection.js
 const Category = new CategoryModel();
 
 // Appropriate route definitions and route handlers from server.js, moved here:
-router.post('/', );
-router.get('/', );
-router.get('/:id', );
+router.get('/', getCategories);
+router.get('/:id', getCategoryByID);
+router.post('/', addCategory);
 router.put('/:id', );
 router.delete('/:id', );
 
