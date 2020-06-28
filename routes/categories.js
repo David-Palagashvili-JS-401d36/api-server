@@ -4,35 +4,32 @@ const express = require('express');
 // Create an instance of express.Router() and export it
 const router = express.Router();
 
-// Require our category model
+// Import appropriate Mongoose Collection
 const CategoryModel = require('../lib/models/categories/categories.collection.js');
-// instantiate the model
+// initialize the model
 const Category = new CategoryModel();
 
-// Appropriate route definitions and route handlers from server.js, moved here:
+// Appropriate route definitions with their route handlers
 router.get('/', getCategories);
 router.get('/:id', getCategoryByID);
 router.post('/', addCategory);
-router.put('/:id', );
+router.put('/:id', updateCategory);
 router.delete('/:id', );
 
-/* TODO: Create a router module for the category data type:
-- Confirm that your server works as before, but now modular
-- Begin the conversion from memory data to persistent data …
-- Import and initialize the appropriate Mongoose Collection (see bullet points below)
+/* TODO: Begin the conversion from memory data to persistent data …
 - In your handler methods, rather than change your in-memory data store, call the appropriate model methods
 */
 
-// Redefined as route definitions, not app definitions
+// Redefined as route handlers
 
 function getCategories (request, response) {
-    Category.get()
+    Category.read()
     .then(result => response.send(result))
     .catch(error => response.send(error))
 };
 
 function getCategoryByID (request, response) {
-    Category.get(request.params.id)
+    Category.read(request.params.id)
     .then(result => response.send(result))
     .catch(error => response.send(error))
 };
@@ -40,5 +37,11 @@ function getCategoryByID (request, response) {
 function addCategory (request, response) {
     Category.create(request.body)
     .then(result => response.send('added' + result))
+    .catch(error => response.send(error))
+};
+
+function updateCategory (request, response) {
+    Category.update(request.params.id, request.body)
+    .then(result => response.send('updated' + request.params.id))
     .catch(error => response.send(error))
 };
