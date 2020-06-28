@@ -5,8 +5,9 @@
 // Require the mongoose library.
 // Prior to calling start() on your imported server module, it connect to Mongo, via mongoose.
 
-// require dotenv
+// require dotenv and the mongoose library.
 require('dotenv').config();
+const mongoose = require('mongoose');
 
 // reading PORT from our .env file
 const PORT = process.env.PORT || 3001;
