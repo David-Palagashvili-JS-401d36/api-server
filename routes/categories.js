@@ -1,5 +1,4 @@
 'use strict';
-
 const express = require('express');
 
 // Create an instance of express.Router() and export it
@@ -11,17 +10,35 @@ const CategoryModel = require('../lib/models/categories/categories.collection.js
 const Category = new CategoryModel();
 
 // Appropriate route definitions and route handlers from server.js, moved here:
-router.post('/', addCategory);
-router.get('/', getAllCategories);
-router.get('/:id', getCategory);
-router.put('/:id', updateCategory);
-router.delete('/:id', deleteCategory);
-/* TODO: Create a router module for the category data type:
+router.post('/', );
+router.get('/', );
+router.get('/:id', );
+router.put('/:id', );
+router.delete('/:id', );
 
-- Redefine the definitions as route definitions (not app definitions)
+/* TODO: Create a router module for the category data type:
 - Confirm that your server works as before, but now modular
 - Begin the conversion from memory data to persistent data …
 - Import and initialize the appropriate Mongoose Collection (see bullet points below)
 - In your handler methods, rather than change your in-memory data store, call the appropriate model methods
-
 */
+
+// Redefined as route definitions, not app definitions
+
+function getCategories (request, response) {
+    Category.get()
+    .then(result => response.send(result))
+    .catch(error => response.send(error))
+};
+
+function getCategoryByID (request, response) {
+    Category.get(request.params.id)
+    .then(result => response.send(result))
+    .catch(error => response.send(error))
+};
+
+function addCategory (request, response) {
+    Category.create(request.body)
+    .then(result => response.send('added' + result))
+    .catch(error => response.send(error))
+};
