@@ -1,3 +1,4 @@
+// thank goodness https://expressjs.com/en/guide/writing-middleware.html
 // TODO: Setup express params middleware at the top level, to run a function on the “model” parameter.
 
 /* 
@@ -7,4 +8,18 @@
 - Requires and instantiates it
 - Makes that model available to the handler functions so - that they can still call, for example, `request.model. create()
 */
+
+const CategoriesModel = require('../lib/models/categories/categories.collection.js');
+
+const ProductsModel = require('../lib/models/products/products.collection.js');
+
+function setModel(request, response, next) {
+    let model = request.params.model;
+    switch(model) {
+        case 'categories':
+            request.model = new CategoriesModel()
+            next();
+            break;
+    }
+};
 
