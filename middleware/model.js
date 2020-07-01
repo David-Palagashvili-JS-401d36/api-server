@@ -17,8 +17,15 @@ function setModel(request, response, next) {
     let model = request.params.model;
     switch(model) {
         case 'categories':
-            request.model = new CategoriesModel()
+            request.model = new CategoriesModel();
             next();
+            break;
+        case 'products':
+            request.model = new ProductsModel();
+            next();
+            break;
+        default:
+            next('That model is unavailable');
             break;
     }
 };
