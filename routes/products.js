@@ -1,4 +1,6 @@
 'use strict';
+// TODO: consolidate this entire route file into api-v1.js, our powerful api router.
+
 const express = require('express');
 
 // Create an instance of express.Router()
