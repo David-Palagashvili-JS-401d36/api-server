@@ -1,6 +1,6 @@
 const express = require('express');
 // TODO: notate for JSdocs once proper functionality is confirmed.
-// TODO: Create a new generic “api” router module. Model this after one of your other working routes.
+// /path/to/jsdoc yourSourceCodeFile.js anotherSourceCodeFile.js ...
 
 const router = express.Router();
 // bring in our model middleware

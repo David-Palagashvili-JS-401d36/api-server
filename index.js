@@ -1,6 +1,5 @@
 'use strict';
 // NOTE: this file is “entry point” to our server:
-
 // TODO: Update the index: jsdoc notation.
 
 // require dotenv and the mongoose library.
