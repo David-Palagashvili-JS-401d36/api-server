@@ -10,10 +10,11 @@ router.param('model', setModel);
 // Modeled this after our other working routes.
 router.get('/', fetchAll);
 router.get('/:id', fetchByID);
-router.post('/', addCategory);
-router.put('/:id', updateCategory);
-router.delete('/:id', deleteCategory);
-// this time we're not bound to a single model, we can dynamically call these methods any VALID models we pass in.
+router.post('/', addNewRecord);
+router.put('/:id', updateRecord);
+router.delete('/:id', deleteRecord);
+
+// this time we're not bound by a single model, we can dynamically call these methods on any VALID models we pass in.
 function fetchAll (request, response) {
     request.model.read()
     .then(result => response.send(result))
@@ -21,26 +22,26 @@ function fetchAll (request, response) {
 };
 
 function fetchByID (request, response) {
-    Category.read(request.params.id)
+    request.model.read(request.params.id)
     .then(result => response.send(result))
     .catch(error => response.send(error))
 };
 
-function add (request, response) {
-    Category.create(request.body)
-    .then(result => response.send('added' + result))
+function addNewRecord (request, response) {
+    request.model.create(request.body)
+    .then(result => response.send(`added new ${model}: ` + result))
     .catch(error => response.send(error))
 };
 
-function updateCategory (request, response) {
-    Category.update(request.params.id, request.body)
-    .then(result => response.send('updated' + request.params.id))
+function updateRecord (request, response) {
+    request.model.update(request.params.id, request.body)
+    .then(result => response.send(`updated ${model}: ` + request.params.id))
     .catch(error => response.send(error))
 };
 
-function deleteCategory (request, response) {
-    Category.delete(request.params.id)
-    .then(result => response.send('deleted' + request.params.id))
+function deleteRecord (request, response) {
+    request.model.delete(request.params.id)
+    .then(result => response.send(`deleted ${model}: ` + request.params.id))
     .catch(error => response.send(error))
 };
 

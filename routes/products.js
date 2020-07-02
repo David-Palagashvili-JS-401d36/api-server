@@ -51,4 +51,4 @@ function deleteProduct (request, response) {
 };
 
 // export the router instance
-module.exports = router;
+// module.exports = router;
